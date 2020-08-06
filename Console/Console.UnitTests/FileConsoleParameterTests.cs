@@ -33,10 +33,10 @@ namespace Meyer.Common.Console.UnitTests
         {
             var parameter = new FileConsoleParameter(new[] { "f" }, x => Program.f = x, "");
 
-            bool mapped = parameter.PerformMapping(new LinkedList<string>($"-f .\\Meyer.Common.Console.dll".Split(' ')));
+            bool mapped = parameter.PerformMapping(new LinkedList<string>($"-f .{Path.DirectorySeparatorChar}Meyer.Common.Console.dll".Split(' ')));
 
             Assert.IsNotNull(Program.f);
-            Assert.AreEqual(Program.f.FullName, $"{Environment.CurrentDirectory}\\Meyer.Common.Console.dll");
+            Assert.AreEqual(Program.f.FullName, $"{Environment.CurrentDirectory}{Path.DirectorySeparatorChar}Meyer.Common.Console.dll");
             Assert.IsTrue(mapped);
         }
 

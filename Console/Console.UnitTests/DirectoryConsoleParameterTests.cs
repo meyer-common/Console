@@ -33,10 +33,10 @@ namespace Meyer.Common.Console.UnitTests
         {
             var parameter = new DirectoryConsoleParameter(new[] { "d" }, x => Program.d = x, "");
 
-            bool mapped = parameter.PerformMapping(new LinkedList<string>($"-d .\\".Split(' ')));
+            bool mapped = parameter.PerformMapping(new LinkedList<string>($"-d .".Split(' ')));
 
             Assert.IsNotNull(Program.d);
-            Assert.AreEqual(Program.d.FullName.Trim('\\'), $"{Environment.CurrentDirectory}");
+            Assert.AreEqual(Program.d.FullName, $"{Environment.CurrentDirectory}");
             Assert.IsTrue(mapped);
         }
 
