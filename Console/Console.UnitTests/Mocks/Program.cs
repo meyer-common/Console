@@ -1,4 +1,6 @@
-﻿namespace Meyer.Common.Console.UnitTests.Mocks
+﻿using System.IO;
+
+namespace Meyer.Common.Console.UnitTests.Mocks
 {
     static class Program
     {
@@ -8,6 +10,8 @@
         public static string w;
         public static Verb v;
         public static Noun n;
+        public static FileInfo f;
+        public static DirectoryInfo d;
     }
 
     enum Verb
