@@ -44,6 +44,9 @@ public class OrderedEnumConsoleParameter<T> : IOrderedConsoleParameter where T :
     /// <returns>Returns true if mapping was done</returns>
     public bool PerformMapping(LinkedList<string> args)
     {
+        if(!args.Any())
+            return false;
+
         var node = args.First;
 
         if (!Enum.GetNames(typeof(T))

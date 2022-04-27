@@ -58,6 +58,17 @@ public class EnumConsoleParameterTests
     }
 
     [TestMethod]
+    public void CannotParseEmptyArgs()
+    {
+        var parameter = new OrderedEnumConsoleParameter<Verb>(() => Program.v, "");
+
+        var mapped = parameter.PerformMapping(new LinkedList<string>());
+
+        Assert.AreEqual(Verb.Null, Program.v);
+        Assert.IsFalse(mapped);
+    }
+
+    [TestMethod]
     public void ArgsRemovedOnSuccess()
     {
         var parameter = new OrderedEnumConsoleParameter<Verb>(() => Program.v, "");
